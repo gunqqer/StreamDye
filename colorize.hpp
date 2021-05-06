@@ -2,6 +2,8 @@
 #include <iostream>
 #include <sstream>
 
+namespace StreamDye
+{
 template<typename T>
 concept Printable = requires(T a)
 {
@@ -28,4 +30,5 @@ template<Printable P> static std::string printWithColor(P arg, Color color)
 	std::stringstream output;
 	output <<prefix <<static_cast<int>(color) <<"m" <<arg <<postfix;
 	return output.str();
+}
 }
