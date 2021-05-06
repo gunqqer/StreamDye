@@ -6,7 +6,7 @@ To use this header you need a compiler which supports <concepts>.
 `gcc` 10 and `clang` 10 should both support this.
 
 # Using
-`#include "colorize.hpp"` and use `printWithColor(Object, Color)` to get a string which can easily be output to `std::cout`
+`#include "StreamDye.hpp"` and use `printWithColor(Object, Color)` to get a string which can easily be output to `std::cout`
 All colors are defined in the header.
 
 # Contributing

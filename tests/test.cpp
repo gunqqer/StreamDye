@@ -1,4 +1,4 @@
-#include "../colorize.hpp"
+#include "../StreamDye.hpp"
 
 int main()
 {
