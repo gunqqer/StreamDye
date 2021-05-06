@@ -3,10 +3,12 @@ A simple header only C++ lib that can colorize most object's output with ANSI co
 
 # Requirements
 To use this header you need a compiler which supports <concepts>.
+
 `gcc` 10 and `clang` 10 should both support this.
 
 # Using
-`#include "StreamDye.hpp"` and use `printWithColor(Object, Color)` to get a string which can easily be output to `std::cout`
+`#include "StreamDye.hpp"` and use `StreamDye::printWithColor(Object obj, Stream::Dye::Color color)` to get a string which can easily be output to `std::cout`
+
 All colors are defined in the header.
 
 # Contributing
