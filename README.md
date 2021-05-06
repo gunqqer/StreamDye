@@ -2,7 +2,7 @@
 A simple header only C++ lib that can colorize most object's output with ANSI color codes
 
 # Requirements
-To use this header you need a compiler which supports <concepts>.
+To use this header you need a compiler which supports \<concepts\>.
 
 `gcc` 10 and `clang` 10 should both support this.
 
