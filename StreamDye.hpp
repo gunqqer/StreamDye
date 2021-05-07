@@ -22,7 +22,7 @@ enum class Color //Bright colors are +60
 	white = 37
 };
 
-template<Printable P> static std::string printWithColor(P arg, Color color)
+template<Printable P> std::string printWithColor(P arg, Color color)
 {
 	static constexpr char prefix[] = {"\x1B["}; //needs a number and an 'm' appended
 	static constexpr char postfix[] ={"\033[0m"}; //resets all effects
