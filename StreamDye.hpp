@@ -19,7 +19,15 @@ enum class Color //Bright colors are +60
 	blue = 34,
 	magenta = 35,
 	cyan = 36,
-	white = 37
+	white = 37,
+	brightBlack = 90,
+	brightRed = 91,
+	brightGreen = 92,
+	brightYellow = 93,
+	brightBlue = 94,
+	brightMagenta = 95,
+	brightCyan = 96,
+	brightWhite = 97
 };
 
 template<Printable P> std::string printWithColor(P arg, Color color)
