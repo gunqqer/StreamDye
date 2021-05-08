@@ -11,8 +11,9 @@ concept Printable = requires(T a)
 };
 
 //global constants
-constexpr char prefix[]{"\x1B["}; //needs a number and postfix appended
+constexpr char prefix[]{"\x1B["}; //needs a code and postfix appended
 constexpr char postfix[]{"m"};
+constexpr char seperator[]{";"}; //Used after prefix and code to add more codes in special ways
 constexpr char clear[]{"\033[0m"}; //resets all effects, output this to a stream to clear all ANSI codes
 
 
@@ -38,18 +39,19 @@ enum class BrightColor
 	brightCyan = 96,
 	brightWhite = 97
 };
+//Not all effects will be supported by your terminal emulator, be careful when using these
 enum class Effects
 {
 	bold = 1,
-	faint = 2, //NWS
-	italic = 3, //NWS
+	faint = 2, //Not widely supported
+	italic = 3, //Not widely supported
 	underline = 4,
 	blinkSlow = 5,
-	blinkFast = 6, //NWS
-	reverseForegroundBackground = 7, //Why though
-	conceal = 8, //NWS
-	crossedOut = 9, //NWS
-	boldOff = 21, //NWS
+	blinkFast = 6, //Not widely supported
+	reverseForegroundBackground = 7, //also known as [[reverse video]]
+	conceal = 8, //Not widely supported
+	crossedOut = 9, //Not widely supported
+	boldOff = 21, //Not widely supported
 	faintOff = 22,
 	italicOff = 23,
 	underlineOff = 24,
@@ -59,10 +61,21 @@ enum class Effects
 	crossedOutOff = 29
 };
 
-template<Printable P> std::string printColor(P obj, Color color)
+template<Printable P> std::string printColored(P obj, Color color)
 {
 	std::stringstream output;
 	output <<prefix <<static_cast<int>(color) <<postfix <<obj <<clear;
 	return output.str();
 }
+
+std::string rgbColor(int red, int green, int blue)
+{
+	constexpr char rgbForeground[]{"38"};
+	std::stringstream output;
+	output <<prefix <<rgbForeground <<seperator <<"2" <<red <<seperator <<green <<seperator <<blue <<postfix;
+	return output.str();
 }
+
+}
+
+
