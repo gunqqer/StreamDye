@@ -77,7 +77,7 @@ inline std::string color(Color c)
 	output <<prefix <<static_cast<int>(c) <<postfix;
 	return output.str();
 }
-template<Printable P> std::string printColor(P obj, Color c)
+template<Printable P> std::string colorPrint(P obj, Color c)
 {
 	std::stringstream output;
 	output <<color(c) <<obj <<prefix <<static_cast<int>(Color::reset) <<postfix;
@@ -91,7 +91,7 @@ inline std::string rgbColor(int red, int green, int blue)
 	output <<prefix <<rgbForeground <<seperator <<"2" <<red <<seperator <<green <<seperator <<blue <<postfix;
 	return output.str();
 }
-template<Printable P> std::string printRgbColor(P obj, int red, int green, int blue)
+template<Printable P> std::string rgbColorPrint(P obj, int red, int green, int blue)
 {
 	std::stringstream output;
 	output <<rgbColor(red, green, blue) <<obj <<prefix <<static_cast<int>(Color::reset) <<postfix;
@@ -104,7 +104,7 @@ inline std::string effect(Effect e) //If used, you must either remember the effe
 	output <<prefix <<static_cast<int>(e) <<postfix;
 	return output.str();
 }
-template<Printable P> std::string printEffect(P obj, Effect e)
+template<Printable P> std::string effectPrint(P obj, Effect e)
 {
 	std::stringstream output;
 	output <<effect(e) <<obj <<prefix <<static_cast<int>(e)+effectResetOffset <<postfix;
