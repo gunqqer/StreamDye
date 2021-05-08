@@ -74,16 +74,16 @@ inline std::string resetAll(){return clear;}
 //
 //The second takes an object as well as the args the first function requires
 //This will enable the code, output the object, then disable it
-inline std::string colored(Color color)
+inline std::string color(Color c)
 {
 	std::stringstream output;
-	output <<prefix <<static_cast<int>(color) <<postfix;
+	output <<prefix <<static_cast<int>(c) <<postfix;
 	return output.str();
 }
-template<Printable P> std::string printColored(P obj, Color color)
+template<Printable P> std::string printColor(P obj, Color c)
 {
 	std::stringstream output;
-	output <<colored(color) <<obj <<Color::reset;
+	output <<color(c) <<obj <<Color::reset;
 	return output.str();
 }
 
@@ -101,7 +101,7 @@ template<Printable P> std::string printRgbColor(P obj, int red, int green, int b
 	return output.str();
 }
 
-inline std::string effect(Effect e)
+inline std::string effect(Effect e) //If used, you must either remember the effect used or use resetAll() to turn it off
 {
 	std::stringstream output;
 	output <<prefix <<static_cast<int>(e) <<postfix;
