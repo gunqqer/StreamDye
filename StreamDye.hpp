@@ -27,11 +27,8 @@ enum class Color
 	blue = 34,
 	magenta = 35,
 	cyan = 36,
-	white = 37
-};
-enum class BrightColor
-{
-	reset = 22, //Also resets intensity
+	white = 37,
+	//Bright colors may not be widely supported
 	brightBlack = 90,
 	brightRed = 91,
 	brightGreen = 92,
