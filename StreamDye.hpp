@@ -16,7 +16,7 @@ constexpr char postfix[]{"m"}; //Mostly for internal use
 constexpr char seperator[]{";"}; //Used after prefix and code to add more codes in special ways, mostly for internal use
 constexpr char clear[]{"\033[0m"}; //resets all effects, output this to a stream to clear all ANSI codes
 
-
+//Enums should only be used with functions in this lib that require them
 enum class Color
 {
 	reset = 39,
@@ -113,6 +113,9 @@ template<Printable P> std::string printEffect(P obj, Effect e)
 	output <<effect(e) <<obj <<static_cast<int>(e)+effectResetOffset;
 	return output.str();
 }
+
+//TODO background colors
+//TODO framed, encircled, overlined
 
 }
 
