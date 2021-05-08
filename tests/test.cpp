@@ -3,6 +3,6 @@
 int main()
 {
 	std::string testString{"Hello!"};
-	std::cout << StreamDye::printWithColor(testString, StreamDye::Color::red) <<std::endl;
+	std::cout << StreamDye::printColor(testString, StreamDye::Color::red) <<std::endl;
 
 }
