@@ -10,6 +10,12 @@ concept Printable = requires(T a)
 	std::cout << a;
 };
 
+//global constants
+constexpr char prefix[]{"\x1B["}; //needs a number and postfix appended
+constexpr char postfix[]{"m"};
+constexpr char clear[]{"\033[0m"}; //resets all effects, output this to a stream to clear all ANSI codes
+
+
 enum class Color //Bright colors are +60
 {
 	black = 30,
@@ -30,13 +36,10 @@ enum class Color //Bright colors are +60
 	brightWhite = 97
 };
 
-template<Printable P> std::string printWithColor(P arg, Color color)
+template<Printable P> std::string printColor(P arg, Color color)
 {
-	static constexpr char prefix[] = {"\x1B["}; //needs a number and an 'm' appended
-	static constexpr char postfix[] ={"\033[0m"}; //resets all effects
-
 	std::stringstream output;
-	output <<prefix <<static_cast<int>(color) <<"m" <<arg <<postfix;
+	output <<prefix <<static_cast<int>(color) <<postfix <<arg <<clear;
 	return output.str();
 }
 }
