@@ -61,18 +61,30 @@ enum class Effects
 	crossedOutOff = 29
 };
 
+inline std::string colored(Color color)
+{
+	std::stringstream output;
+	output <<prefix <<static_cast<int>(color) <<postfix;
+	return output.str();
+}
 template<Printable P> std::string printColored(P obj, Color color)
 {
 	std::stringstream output;
-	output <<prefix <<static_cast<int>(color) <<postfix <<obj <<clear;
+	output <<colored(color) <<obj <<clear;
 	return output.str();
 }
 
-std::string rgbColor(int red, int green, int blue)
+inline std::string rgbColor(int red, int green, int blue)
 {
 	constexpr char rgbForeground[]{"38"};
 	std::stringstream output;
 	output <<prefix <<rgbForeground <<seperator <<"2" <<red <<seperator <<green <<seperator <<blue <<postfix;
+	return output.str();
+}
+template<Printable P> std::string printRgbColor(P obj, int red, int green, int blue)
+{
+	std::stringstream output;
+	output <<rgbColor(red, green, blue) <<obj <<clear;
 	return output.str();
 }
 
