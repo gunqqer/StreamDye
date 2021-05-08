@@ -19,7 +19,7 @@ constexpr char clear[]{"\033[0m"}; //resets all effects, output this to a stream
 
 enum class Color
 {
-	reset = 22, //Also resets intensity
+	reset = 39,
 	black = 30,
 	red = 31,
 	green = 32,
@@ -83,7 +83,7 @@ inline std::string color(Color c)
 template<Printable P> std::string printColor(P obj, Color c)
 {
 	std::stringstream output;
-	output <<color(c) <<obj <<Color::reset;
+	output <<color(c) <<obj <<prefix <<static_cast<int>(Color::reset) <<postfix;
 	return output.str();
 }
 
@@ -97,7 +97,7 @@ inline std::string rgbColor(int red, int green, int blue)
 template<Printable P> std::string printRgbColor(P obj, int red, int green, int blue)
 {
 	std::stringstream output;
-	output <<rgbColor(red, green, blue) <<obj <<Color::reset;
+	output <<rgbColor(red, green, blue) <<obj <<prefix <<static_cast<int>(Color::reset) <<postfix;
 	return output.str();
 }
 
