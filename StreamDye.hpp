@@ -19,6 +19,7 @@ constexpr char clear[]{"\033[0m"}; //resets all effects, output this to a stream
 
 enum class Color
 {
+	reset = 22, //Also resets intensity
 	black = 30,
 	red = 31,
 	green = 32,
@@ -30,6 +31,7 @@ enum class Color
 };
 enum class BrightColor
 {
+	reset = 22, //Also resets intensity
 	brightBlack = 90,
 	brightRed = 91,
 	brightGreen = 92,
@@ -52,7 +54,7 @@ enum class Effects
 	conceal = 8, //Not widely supported
 	crossedOut = 9, //Not widely supported
 	boldOff = 21, //Not widely supported
-	faintOff = 22,
+	faintOff = 22, //Also turns off color
 	italicOff = 23,
 	underlineOff = 24,
 	blinkOff = 25,
@@ -61,6 +63,12 @@ enum class Effects
 	crossedOutOff = 29
 };
 
+//These are pairs of functions that work together
+//The first returns a string that will enable the code and must be manually disabled
+//by outputting StreamDye::clear to the same stream or the corresponding Effect::xxxxxOff
+//
+//The second takes an object as well as the args the first function requires
+//This will enable the code, output the object, then disable it
 inline std::string colored(Color color)
 {
 	std::stringstream output;
@@ -70,7 +78,7 @@ inline std::string colored(Color color)
 template<Printable P> std::string printColored(P obj, Color color)
 {
 	std::stringstream output;
-	output <<colored(color) <<obj <<clear;
+	output <<colored(color) <<obj <<Color::reset;
 	return output.str();
 }
 
@@ -84,7 +92,7 @@ inline std::string rgbColor(int red, int green, int blue)
 template<Printable P> std::string printRgbColor(P obj, int red, int green, int blue)
 {
 	std::stringstream output;
-	output <<rgbColor(red, green, blue) <<obj <<clear;
+	output <<rgbColor(red, green, blue) <<obj <<Color::reset;
 	return output.str();
 }
 
