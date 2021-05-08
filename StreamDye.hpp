@@ -107,7 +107,7 @@ inline std::string effect(Effect e) //If used, you must either remember the effe
 template<Printable P> std::string printEffect(P obj, Effect e)
 {
 	std::stringstream output;
-	output <<effect(e) <<obj <<static_cast<int>(e)+effectResetOffset;
+	output <<effect(e) <<obj <<prefix <<static_cast<int>(e)+effectResetOffset <<postfix;
 	return output.str();
 }
 
