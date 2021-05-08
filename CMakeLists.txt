@@ -9,5 +9,7 @@ file(GLOB test "./tests/test.cpp")
 
 add_compile_options(-Wall -Wextra -pedantic -Werror)
 
+enable_testing()
 add_executable(StreamDyeTest ${test}) #Requires <concepts>, gcc 10, clang 10
+add_test(NAME mainTest COMMAND StreamDyeTest)
 
