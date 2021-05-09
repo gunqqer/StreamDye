@@ -1,9 +1,12 @@
 #include "../StreamDye.hpp"
-#include <assert.h>
+#include <cassert>
+#include <string>
 #include <vector>
 #include <utility>
 #include <iostream>
+#include <string_view>
 
+//This is for testing, not as a code demonstration (Running does demonstrate what can be done, try it!)
 int main()
 {
 	//TODO actually write tests, integrate with cmake
@@ -18,3 +21,4 @@ int main()
 	for(auto& i: printTest){std::cout <<i.second <<": " <<i.first <<std::endl;}
 
 }
+

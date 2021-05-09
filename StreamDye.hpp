@@ -48,7 +48,7 @@ enum class Effect
 	underline = 4,
 	blinkSlow = 5,
 	blinkFast = 6, //Not widely supported
-	reverseForegroundBackground = 7, //also known as [[reverse video]]
+	invertColor = 7, //also known as [[reverse video]]
 	conceal = 8, //Not widely supported
 	crossedOut = 9, //Not widely supported
 	//Off codes are the on codes +20
@@ -58,7 +58,7 @@ enum class Effect
 	underlineOff = 24,
 	blinkOff = 25,
 	blinkFastOff = 25, //Codes for resetting both blinks are the same
-	reverseForegroundBackgroundOff = 27,
+	revertColor = 27,
 	concealOff = 28,
 	crossedOutOff = 29
 };
