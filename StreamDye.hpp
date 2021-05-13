@@ -14,7 +14,7 @@ concept Printable = requires(T a)
 constexpr char prefix[]{"\x1B["}; //Needs a code and postfix appended to actually do anything, mostly for internal use
 constexpr char postfix[]{"m"}; //Mostly for internal use
 constexpr char seperator[]{";"}; //Used after prefix and code to add more codes in special ways, mostly for internal use
-constexpr char clear[]{"\033[0m"}; //resets all effects, output this to a stream to clear all ANSI codes
+constexpr char clear[]{"\033[0m"}; //resets all effects, output this to a stream to clear all ANSI codes (should use StreamDye::resetAll())
 
 //Enums should only be used with functions in this lib that require them
 enum class Color
