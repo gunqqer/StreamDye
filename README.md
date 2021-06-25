@@ -11,6 +11,16 @@ To use this header you need a compiler which supports \<concepts\>.
 
 All colors are defined in the header.
 
+# Building
+
+To build the sample code, you will need CMake and Make (and as above, c++20 support with support for \<concepts\>).
+```
+mkdir -p build;
+cmake ..
+make
+```
+All binaries will be put into the root of the build directory. For information on what each binary does, read the cpp file it was compiled from.
+
 # Contributing
 Please open pull requests to improve this. I will appreciate any contribution.
 
