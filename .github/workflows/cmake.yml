@@ -21,7 +21,7 @@ jobs:
 
     steps:
     - name: "install build tools"
-      run: apt update && apt install -y build-essential git
+      run: apt update && apt install -y build-essential git cmake
     - uses: actions/checkout@v2
 
     - name: Configure CMake
